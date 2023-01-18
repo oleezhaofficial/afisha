@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Концерт {{ concert.artist_id }}{% endblock %}
+
+{% block content %}
+
+    <div class = container style="margin-top: 10px">
+                    <div class="card mb-3" style="width: 100%;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="{{ concert.pic }}" class="img-fluid" alt="картинка">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Артист: <a style="color: black" href="http://127.0.0.1:8000/artist/{{ concert.artist_id_id }}">{{ concert.artist_id }}</a></h5>
+                                <p class="card-text">Цена билета: {{ concert.price }}Р</p>
+                                <p class="card-text">Возрастной рейтинг: {{ concert.age_rating }}</p>
+                                <p class="card-text">Где: {{ concert.address }}</p>
+                                <p class="card-text">Когда: {{ concert.date }}</p>
+                                <p class="card-text">Описание: {{ concert.descr }}</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </div>
+{% endblock %}

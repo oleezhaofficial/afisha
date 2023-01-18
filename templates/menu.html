@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Афиша{% endblock %}
+
+{% block active_afisha %} active{% endblock %}
+
+{% block content %}
+    <div class="container">
+    <h1> Концерты </h1>
+
+
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                     <div class="row">
+                         {% for c in concert %}
+                         <div class="col">
+                             <div class="card" style="width: 18rem; margin: 10px 1px" >
+                                 <img src="{{ c.pic }}" class="card-img-top" alt="Картинка">
+
+                                 <div class="card-body" style="justify-content: space-between; flex-flow: column;">
+
+                                        <h5 class="card-title"><a style="color: black" href="http://127.0.0.1:8000/artist/{{ c.artist_id_id }}">{{ c.artist_id }}</a></h5>
+                                        <p class="card-text">Цена: {{ c.price }}</p>
+                                        <p class="card-text">Когда: {{ c.date }}</p>
+
+                                     <a href="http://127.0.0.1:8000/concert/{{ c.id }}" class="btn btn-primary">Подробнее</a>
+                                 </div>
+                             </div>
+                         </div>
+                         {% endfor %}
+                     </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+    </div>
+
+{% endblock %}
